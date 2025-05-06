@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Button from "./Button";
+import Label from "./Label";
+import Input from "./Input";
 
 const Form = ({ expenses, setExpenses }) => {
   const currentDate = new Date().toISOString().split("T")[0];
@@ -19,8 +22,8 @@ const Form = ({ expenses, setExpenses }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <li>
-          <label htmlFor="item">Item: </label>
-          <input
+          <Label htmlFor="item">Item:</Label>
+          <Input
             id="item"
             name="item"
             value={newExpense.item}
@@ -28,8 +31,8 @@ const Form = ({ expenses, setExpenses }) => {
           />
         </li>
         <li>
-          <label htmlFor="price">Price: </label>
-          <input
+          <Label htmlFor="price">Price:</Label>
+          <Input
             id="price"
             name="price"
             value={newExpense.price}
@@ -37,8 +40,8 @@ const Form = ({ expenses, setExpenses }) => {
           />
         </li>
         <li>
-          <label htmlFor="date">Date: </label>
-          <input
+          <Label htmlFor="date">Date:</Label>
+          <Input
             id="date"
             name="date"
             value={newExpense.date}
@@ -46,7 +49,9 @@ const Form = ({ expenses, setExpenses }) => {
           />
         </li>
         <br />
-        <button type="submit">Submit</button>
+        <Button type="submit" className="submit-btn">
+          Submit
+        </Button>
       </form>
     </div>
   );

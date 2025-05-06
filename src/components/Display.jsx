@@ -1,4 +1,4 @@
-import React from "react";
+import Item from "./Item";
 
 const Display = ({ expenses, onDelete }) => {
   return (
@@ -6,12 +6,15 @@ const Display = ({ expenses, onDelete }) => {
       <div className="ExpenseItemsDiv">
         {expenses.map((expense, index) => {
           return (
-            <div key={index} className="ExpenseItem">
-              <p>Item: {expense.item}</p>
-              <p>Price: ${expense.price}</p>
-              <p>Date: {expense.date}</p>
-              <button onClick={() => onDelete(index)}>Delete</button>
-            </div>
+            <Item
+              key={index}
+              index={index}
+              className="ExpenseItem"
+              item={expense.item}
+              price={expense.price}
+              date={expense.date}
+              onDelete={onDelete}
+            />
           );
         })}
       </div>
